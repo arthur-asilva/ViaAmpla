@@ -1,0 +1,61 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="card z-index-0">
+        <div class="card-header text-center pt-4">
+            <h5>Adicionar proposta</h5>
+            <span>Dados do contratante</span>
+        </div>
+        <div class="card-body">
+            <form role="form" method="post">
+                <div class="row mb-3">
+                    <div class="form-group col-9 mb-3">
+                        <label>Nome</label>
+                        <input type="text" class="form-control" name="client_name" aria-label="Nome">
+                    </div>
+                    <div class="form-group col-3">
+                        <label>CPF</label>
+                        <input type="text" class="form-control" name="client_cpf" aria-label="CPF">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="form-group col-6">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="client_email" aria-label="Email">
+                    </div>
+                    <div class="form-group col-3">
+                        <label>Telefone/whatsapp</label>
+                        <input type="text" class="form-control" name="client_phone_number" aria-label="Telefone">
+                    </div>
+                    <div class="form-group col-3">
+                        <label>Data de nascimento</label>
+                        <input type="date" class="form-control" name="client_born_date" aria-label="Data de nascimento">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="form-group col-5">
+                        <label>Possui placa?</label>
+                        <select class="form-control" name="client_has_license_plate">
+                            <option selected value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-7">
+                        <label>Relação do condutor principal com o segurado</label>
+                        <select class="form-control" name="client_conductor_relation">
+                            {% for relation in client_relation %}
+                                <option value="1">{{relation.1}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

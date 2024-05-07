@@ -7,6 +7,7 @@ class Client(models.Model):
     client_email = models.EmailField(max_length=254)
     client_born_date = models.DateField()
     client_cpf = models.CharField(max_length=11)
+    client_phone_number = models.CharField(max_length=30)
     client_has_license_plate = models.BooleanField()
     client_conductor_relation = models.IntegerField(choices=CLIENT_RELATION)
 
