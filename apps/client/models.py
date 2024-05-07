@@ -35,6 +35,9 @@ class Client(models.Model):
     trust_check = models.BooleanField()
     created_at = models.DateTimeField(null=True, blank=True, default=timezone.now)
 
+    seen = models.BooleanField(default=False, null=True)
+    answered = models.BooleanField(default=False, null=True)
+
     def __str__(self):
         return self.client_name
 

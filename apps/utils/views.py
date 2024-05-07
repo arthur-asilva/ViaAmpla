@@ -65,3 +65,22 @@ IS_TO_COLLEGE = [
     (4, 'Estuda mas não utiliza o veículo'),
     (5, 'Não estuda')
 ]
+
+class DataModel:
+    def __init__(self, message_title='', message_text=''):
+
+        self.data = {
+            'has_message': False,
+            'message_title': 'Operação inválida',
+            'message_text': 'Verifique se todas as entradas de dados estão corretas e tente novamente'
+        }
+
+        if message_title != '' or message_text != '':
+            self.data['message_title'] = message_title
+            self.data['message_text'] = message_text
+
+    def SetItem(self, key, value):
+        self.data[key] = value
+
+    def GetData(self):
+        return self.data
