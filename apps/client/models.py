@@ -33,7 +33,7 @@ class Client(models.Model):
     is_to_work = models.IntegerField(choices=IS_TO_WORK)
     is_to_college = models.IntegerField(choices=IS_TO_COLLEGE)
 
-    trust_check = models.BooleanField()
+    trust_check = models.BooleanField(blank=True, null=True)
     created_at = models.DateTimeField(null=True, blank=True, default=timezone.now)
 
     seen = models.BooleanField(default=False, null=True)
@@ -41,6 +41,12 @@ class Client(models.Model):
 
     def __str__(self):
         return self.client_name
+    
+    @classmethod
+    def create(cls, request):
+        data = request.POST.copy()
+        cls.objects.create()
+
 
 
 

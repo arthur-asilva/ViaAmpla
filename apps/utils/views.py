@@ -26,7 +26,8 @@ EXTENDED_COVERAGES = [
     (0, 'Sim, porém são maiores que 24 anos e menores que 26 anos.'),
     (1, 'Não tem condutores menores de 26 anos.'),
     (2, 'Sim, e são menores de 24 anos.'),
-    (3, 'Sim, porém não dirige o veículo')
+    (3, 'Sim, porém não dirige o veículo'),
+    (4, 'Não'),
 ]
 
 USE_TYPES = [
