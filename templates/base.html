@@ -34,6 +34,12 @@
   <link href="{% static 'assets/css/nucleo-svg.css' %}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{% static 'assets/css/argon-dashboard.css' %}?v=2.0.4" rel="stylesheet" />
+  <style type="text/css">
+    @media only screen and (max-width: 1000px) {
+        form .row{  flex-direction: column; }
+        form .row .form-group{  width: 100%;    }
+    }
+  </style>
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -129,6 +135,28 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item dropdown pe-2 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-power-off cursor-pointer"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                <li class="mb-2">
+                  <a class="dropdown-item border-radius-md" href="{% url 'logout' %}">
+                    <div class="d-flex py-1">
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="text-sm font-weight-normal mb-1">
+                          <span class="font-weight-bold text-danger">Tem certeza de que deseja sair?</span>
+                        </h6>
+                        <p class="text-xs text-secondary mb-0">
+                          <i class="fa fa-power-off me-1"></i>
+                          Clique aqui para sair da sua conta
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
@@ -143,8 +171,17 @@
   <script src="{% static 'assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
   <script src="{% static 'assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
   <script src="{% static 'assets/js/plugins/chartjs.min.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
   <script>
-    
+
+    $(document).ready(() => {
+      $('input[name="client_cpf"]').mask('000.000.000-00')
+      $('input[name="conductor_cpf"]').mask('000.000.000-00')
+      $('input[name="client_phone_number"]').mask('(00)00000-0009')
+      $('input[name="storage_cep"]').mask('00000-000')
+    })
+
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
     var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);

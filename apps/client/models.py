@@ -45,7 +45,20 @@ class Client(models.Model):
     @classmethod
     def create(cls, request):
         data = request.POST.copy()
-        cls.objects.create()
+        del data['csrfmiddlewaretoken']
+        data['trust_check'] = request.POST.get('trust_check', False)
+
+        data['client_cpf'] = data['client_cpf'].replace('.', '').replace('-', '')
+        data['conductor_cpf'] = data['conductor_cpf'].replace('.', '').replace('-', '')
+
+        data_post = {}
+        for key in data.keys():
+            data_post[key] = data[key]
+
+        if data_post['trust_check'] == 'on':
+            data_post['trust_check'] = True
+
+        cls.objects.create(**data_post)
 
 
 

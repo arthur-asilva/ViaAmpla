@@ -29,8 +29,8 @@ def UserLogin(request):
 @LoginRequired
 def UserLogout(request):
     session = request.session.get('app_auth', None)
-
+    
     if session != None:
         del request.session['app_auth']
 
-    return UserLogin(request)
+    return redirect(f"{settings.HOST}")

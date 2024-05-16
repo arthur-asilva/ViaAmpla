@@ -73,7 +73,16 @@ class DataModel:
         self.data = {
             'has_message': False,
             'message_title': 'Operação inválida',
-            'message_text': 'Verifique se todas as entradas de dados estão corretas e tente novamente'
+            'message_text': 'Verifique se todas as entradas de dados estão corretas e tente novamente',
+            'client_relation': CLIENT_RELATION,
+            'genders': GENDERS,
+            'marital_status': MARITAL_STATUS,
+            'extended_coverages': EXTENDED_COVERAGES,
+            'use_types': USE_TYPES,
+            'storage_in': STORAGE_IN,
+            'live_in': LIVE_IN,
+            'to_work_options': IS_TO_WORK,
+            'to_college_options': IS_TO_COLLEGE,
         }
 
         if message_title != '' or message_text != '':
